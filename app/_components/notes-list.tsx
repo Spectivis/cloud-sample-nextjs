@@ -6,14 +6,15 @@ export async function NotesList() {
   const notes = listNotes();
 
   if (notes.length === 0) {
-    return <p>No notes yet.</p>;
+    return <p className="empty">No notes yet.</p>;
   }
 
   return (
-    <ul>
+    <ul className="list">
       {notes.map((note) => (
         <li key={note.id}>
-          {note.text} <small>{note.createdAt}</small>
+          {note.text}
+          <span className="meta">{note.createdAt}</span>
         </li>
       ))}
     </ul>
