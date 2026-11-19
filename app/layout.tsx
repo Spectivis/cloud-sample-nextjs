@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { version as nextVersion } from "next/package.json";
 import "./globals.css";
 
 export const metadata = {
@@ -7,25 +8,24 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-framework="nextjs">
       <body>
-        <header className="bar">
-          <div className="wrap">
-            <a className="wordmark" href="https://spectivis.com">
-              Spectivis <span>Cloud</span>
-            </a>
+        <div className="page">
+          <header className="top">
+            <span className="host">Next.js sample</span>
             <nav>
-              <a href="https://spectivis.com">spectivis.com</a>
+              <a href="#notes">Notes</a>
+              <a className="outline" href="https://spectivis.com">
+                Spectivis Cloud
+              </a>
             </nav>
-          </div>
-        </header>
-        {children}
-        <footer className="foot">
-          <div className="wrap">
-            <span>Hosted on Spectivis Cloud</span>
+          </header>
+          {children}
+          <footer className="foot">
+            <span>Next.js {nextVersion}, App Router</span>
             <a href="https://spectivis.com">spectivis.com</a>
-          </div>
-        </footer>
+          </footer>
+        </div>
       </body>
     </html>
   );

@@ -10,11 +10,14 @@ export async function NotesList() {
   }
 
   return (
-    <ul className="list">
+    <ul className="entries">
       {notes.map((note) => (
         <li key={note.id}>
-          {note.text}
-          <span className="meta">{note.createdAt}</span>
+          <div className="who">
+            <strong>Note {note.id}</strong>
+            <span className="when">{note.createdAt.slice(11, 16)} UTC</span>
+          </div>
+          <p>{note.text}</p>
         </li>
       ))}
     </ul>
