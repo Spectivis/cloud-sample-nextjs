@@ -5,10 +5,20 @@ export async function ServerInfo() {
   await new Promise((resolve) => setTimeout(resolve, 1500));
 
   return (
-    <ul>
-      <li>Rendered at {new Date().toISOString()}</li>
-      <li>Node {process.version}</li>
-      <li>Listening on {process.env.HOSTNAME ?? "default host"}, port {process.env.PORT ?? "3000"}</li>
-    </ul>
+    <dl className="status">
+      <div>
+        <dt>Streamed</dt>
+        <dd>
+          <span className="state ok">Arrived.</span> This block waited 1.5 seconds on the server, then
+          streamed in.
+        </dd>
+      </div>
+      <div>
+        <dt>Rendered at</dt>
+        <dd>
+          <code>{new Date().toISOString()}</code>
+        </dd>
+      </div>
+    </dl>
   );
 }
